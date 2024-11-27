@@ -39,8 +39,12 @@ struct ContentView: View {
                 }
 //                .pickerStyle(.navigationLink)
                 
-                Section {
+                Section("Amount per Person") {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                }
+                
+                Section("Check total") {
+                    Text(totalIncludingTip, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
             }
             .navigationTitle("WeSplit")
@@ -63,6 +67,14 @@ struct ContentView: View {
         let amountPerPerson = grandTotal / peopleCount
 
         return amountPerPerson
+    }
+    
+    var totalIncludingTip: Double {
+        //TODO: replace copypasta with a function
+        let tipSelection = Double(tipPercentage)
+        let tipValue = checkAmount / 100 * tipSelection
+        let grandTotal = checkAmount + tipValue
+        return grandTotal
     }
 }
 
