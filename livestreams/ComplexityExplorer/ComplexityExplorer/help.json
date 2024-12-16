@@ -1,0 +1,92 @@
+[
+    {
+      "id": "Constant",
+      "notation": "O(1)",
+      "description": "Constant growth means the algorithm takes the same amount of time or space no matter what the input size is. This makes it the optimal growth rate, because no matter how big or small the input is, the time or space to process it doesn't change.",
+      "examples": [
+        "Accessing an element in an array by index",
+        "Checking whether a set contains a particular object",
+        "Checking if a number is even or odd"
+      ]
+    },
+    {
+      "id": "Logarithmic",
+      "notation": "O(log n)",
+      "description": "A logarithmic growth rate increases slowly as the input size grows. It has this name because the time or space he function takes is proportional to the base 2 logarithm of the input size, which is commonly seen in functions that are able to divide their work for efficiency.",
+      "examples": [
+        "Binary search",
+        "Finding the height of a balanced binary tree",
+        "Repeatedly dividing a number by 2"
+      ]
+    },
+    {
+      "id": "Linear",
+      "notation": "O(n)",
+      "description": "A linear growth rate increases directly in proportion to the size of the input. For example, doubling the input will double the time or space required, and making the input 10 times as big will take 10 times as long or 10 times as much space.",
+      "examples": [
+        "Checking whether an array contains a particular object",
+        "Counting occurrences of a character in a string",
+        "Summing elements in an array"
+      ]
+    },
+    {
+      "id": "Square Root",
+      "notation": "O(√n)",
+      "description": "A square root growth rate increases with the square root of the input size, which is better than a linear growth rate but not quite as good a logarithmic growth. This growth rate isn't so common, but you'll see it in algorithms that tackle subsets of the input.",
+      "examples": [
+        "Checking all possible factors of a number",
+        "Looping until the square root of a number",
+        "Solving certain computational geometry problems"
+      ]
+    },
+    {
+      "id": "Linearithmic",
+      "notation": "O(n log n)",
+      "description": "Linearithmic growth is the combination of linear and logarithmic behavior, meaning that it does all the same work as a linear function but also adds extra work that grows logarithmically with the input size.",
+      "examples": [
+        "Merge sort",
+        "Heap sort",
+        "Timsort"
+      ]
+    },
+    {
+      "id": "Quadratic",
+      "notation": "O(n²)",
+      "description": "A quadratic growth rate increases as the square of the input size, which means it grows quickly: 1 is 1, 2 is 4, 3 is 9, 4 is 16, and so on. Quadratic growth often involves nested loops: \"for each item in the array, go over each item in the array…\".",
+      "examples": [
+        "Bubble sort",
+        "Checking all pairs in an array",
+        "Multiplying two matrices value by value"
+      ]
+    },
+    {
+      "id": "Cubic",
+      "notation": "O(n³)",
+      "description": "A cubic growth rate increases as the cube of the input size, which means it grows very quickly: 1 is 1, 2 is 8, 3 is 27, 4 is 64, and so on. This is like quadratic growth except with an extra nested loop – \"for each item in the array, go over each item in the array, and for each of those go over each item in the array…\".",
+      "examples": [
+        "Checking a word square is valid",
+        "Enumerating all triplets in an array",
+        "The Floyd–Warshall algorithm for finding shortest paths"
+      ]
+    },
+    {
+      "id": "Exponential",
+      "notation": "O(2ⁿ)",
+      "description": "An exponential growth rate increases as a power of the input size, which means it grows extremely quickly: 1 is 1, 2 is 4, 3 is 8, 4 is 16, 5 is 32, and so on. You'll commonly seem exponential growth in brute-force solutions to problems, often involving evaluating combinations.",
+      "examples": [
+        "Drawing a map in the minimum number of colors, so that no two adjacent countries have the same color",
+        "Calculating all subsets of a set",
+        "Calculating the Fibonacci sequence using naive recursion"
+      ]
+    },
+    {
+      "id": "Factorial",
+      "notation": "O(n!)",
+      "description": "A factorial growth rate grows at a startling rate, and is best avoided absolutely necessary. Factorials are written with an exclamation mark, and refer to a number multiplied by all positive integers coming before it. For example, 6! is 6×5×4×3×2×1 is 720. Factorial growth manages to make even exponential growth look good.",
+      "examples": [
+        "Generating all permutations of a string",
+        "Brute-force solving the traveling salesman problem",
+        "Finding the optimal schedule for jobs to maximize profit"
+      ]
+    }
+]
