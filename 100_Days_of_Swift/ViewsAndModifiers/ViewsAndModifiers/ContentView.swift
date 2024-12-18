@@ -24,6 +24,20 @@ extension View {
     }
 }
 
+struct LargeBlueFont: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundStyle(.blue)
+    }
+}
+
+extension View {
+    func LargeBlue() -> some View {
+        modifier(LargeBlueFont())
+    }
+}
+
 struct WaterMarked : ViewModifier {
     var text: String
     func body(content: Content) -> some View {
@@ -51,6 +65,8 @@ struct GridStack<Content: View>: View {
     
     var body: some View {
         VStack {
+            Text("Cool")
+                .LargeBlue()
             ForEach(0..<rows, id: \.self) { row in
                 HStack {
                     ForEach(0..<columns, id: \.self) {
