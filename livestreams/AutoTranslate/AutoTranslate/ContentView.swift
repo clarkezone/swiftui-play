@@ -57,7 +57,7 @@ struct ContentView: View {
                     configuration.invalidate()
                 }
                 .onChange(of: languages) { oldValue, newValue in
-                    updateLanguages()
+                    updateLanguages(oldValue: oldValue, newValue: newValue)
                 }
             
             Button("create translations", action: createAllTranslations)
