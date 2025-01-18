@@ -7,44 +7,196 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
-    def "SkyDome" (
+    reorder nameChildren = ["SkySphere", "SkyDome", "Video_Dock", "SphereEmitter", "James_Material", "DirectionalLight"]
+    def Sphere "SphereEmitter" (
         active = true
-        prepend references = @SkyDome.usdz@
+        prepend apiSchemas = ["MaterialBindingAPI"]
     )
     {
-        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        rel material:binding = </Root/James_Material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0.1
+        float3 xformOp:scale = (4, 4, 4)
+        float3 xformOp:translate = (0, 3.1158378, -4.203174)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DefaultMaterial"
+        {
+            token outputs:mtlx:surface
+            token outputs:realitykit:vertex
+            token outputs:surface.connect = </Root/SphereEmitter/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+    }
+
+    def Material "James_Material"
+    {
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/James_Material/UsdPreviewSurface.outputs:surface>
+
+        def Shader "UsdPreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            float inputs:clearcoat = 0.1
+            color3f inputs:diffuseColor = (0.91925323, 0.41389596, 0.04707926) (
+                colorSpace = "srgb_displayp3"
+            )
+            color3f inputs:emissiveColor = (0.39835694, 0.39835694, 0.39835694) (
+                colorSpace = "srgb_displayp3"
+            )
+            token outputs:surface
+        }
+    }
+
+    def Xform "DirectionalLight"
+    {
+        def RealityKitComponent "DirectionalLight"
+        {
+            token info:id = "RealityKit.DirectionalLight"
+
+            def RealityKitStruct "Shadow"
+            {
+                bool isEnabled = 1
+            }
+        }
+    }
+
+    def "Beaker" (
+        active = true
+        references = @Beaker.usdz@
+    )
+    {
+        reorder nameChildren = ["ParticleEmitter", "geom"]
+        float3 xformOp:scale = (3, 3, 3)
+        float3 xformOp:translate = (0.10222101, 1.2688861, -3.4385333)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
-    def Xform "Video_Dock" (
-        references = None
+    def "ErlenmeyerFlask" (
+        active = true
+        references = @ErlenmeyerFlask.usdz@
     )
     {
-        double3 xformOp:translate = (0, 0.8, -3)
+        float3 xformOp:scale = (10, 10, 10)
+        float3 xformOp:translate = (1.0114902, 1.2422576, -4.972934)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
-        def Xform "Player"
+        over "geom"
         {
-            double3 xformOp:translate = (0, 0.6, 0)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-            def RealityKitComponent "CustomDockingRegion"
+            over "realistic"
             {
-                token info:id = "RealityKit.CustomDockingRegion"
-
-                def RealityKitStruct "m_bounds"
+                over "materials"
                 {
-                    float3 max = (1.2, 0.5, 0)
-                    float3 min = (-1.2, -0.5, -0)
+                    over "erlenmeyer_flask_realistic_mat"
+                    {
+                        string inputs:erlenmeyer_flask_realistic_mat_bc_1:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (334.25, 808)
+                                }
+                            }
+                        )
+                        string inputs:erlenmeyer_flask_realistic_mat_n_1:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (621.25, 808)
+                                }
+                            }
+                        )
+                        string inputs:erlenmeyer_flask_realistic_mat_o_1:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (908.25, 808)
+                                }
+                            }
+                        )
+                        string inputs:erlenmeyer_flask_realistic_mat_r_1:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (1195.25, 808)
+                                }
+                            }
+                        )
+                        token outputs:realitykit:vertex
+                        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1428.75, 248.75)
+
+                        over "erlenmeyer_flask_realistic_mat_o_1_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (623, 441.5)
+                        }
+
+                        over "erlenmeyer_flask_realistic_mat_bc_1_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (893, 100.5)
+                        }
+
+                        over "erlenmeyer_flask_realistic_mat_r_1_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (350, 279)
+                        }
+
+                        over "Lookup_st"
+                        {
+                            float2 ui:nodegraph:node:pos = (91, 309)
+                        }
+
+                        over "erlenmeyer_flask_realistic_mat_n_1_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (350, 620)
+                        }
+
+                        over "erlenmeyer_flask_realistic_mat_n_1_mtlx_offset"
+                        {
+                            float2 ui:nodegraph:node:pos = (893, 620)
+                        }
+
+                        over "erlenmeyer_flask_realistic_mat_n_1_mtlx_scale"
+                        {
+                            float2 ui:nodegraph:node:pos = (623, 620)
+                        }
+
+                        over "erlenmeyer_flask_realistic_01_mat_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (1163, 248.75)
+                        }
+                    }
+                }
+
+                over "geo"
+                {
+                    over "lod0"
+                    {
+                    }
                 }
             }
-        }
 
-        def "Ground" (
-            prepend references = @Ground/Ground.usda@
-        )
-        {
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (0.07791975, 0.13205041, 0.0779197)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                        float3 position = (2.9802322e-8, 0.066025205, 2.6077032e-8)
+                    }
+                }
+            }
         }
     }
 }
