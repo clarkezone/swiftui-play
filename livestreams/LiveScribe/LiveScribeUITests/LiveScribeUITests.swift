@@ -24,5 +24,14 @@ final class LiveScribeUITests: XCTestCase {
         let webViewExists = app.webViews.firstMatch.waitForExistence(timeout: 1)
         XCTAssertTrue(webViewExists, "there should be a webview")
     }
+    
+    func testOutputMatchesInput() {
+        _ = app.webViews.firstMatch.waitForExistence(timeout: 1)
+        _ = app.textViews.firstMatch.waitForExistence(timeout: 1)
+        let targetText = UUID().uuidString
+        app.textViews.firstMatch.tap()
+        app.typeText("Hello, world")
+        XCTAssertTrue(app.webViews.firstMatch.staticTexts[targetText].exists, "Typing into the editor should create matching output.")
+    }
 
 }

@@ -1,0 +1,44 @@
+{
+  "configurations" : [
+    {
+      "id" : "59879E7C-53D4-4E58-AF2A-F5109FDCE606",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:LiveScribe.xcodeproj",
+      "identifier" : "9C8AE5A42D57C6EB001ED28C",
+      "name" : "LiveScribe"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "LiveScribeUITests",
+        "LiveScribeUITests\/testInputExists()",
+        "LiveScribeUITests\/testOutputExists()",
+        "LiveScribeUITests\/testOutputMatchesInput()",
+        "LiveScribeUITests\/testSplitterExists()"
+      ],
+      "target" : {
+        "containerPath" : "container:LiveScribe.xcodeproj",
+        "identifier" : "9C8AE5BA2D57C7DA001ED28C",
+        "name" : "LiveScribeUITests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:LiveScribe.xcodeproj",
+        "identifier" : "9C8AE5CB2D57D247001ED28C",
+        "name" : "Tests"
+      }
+    }
+  ],
+  "version" : 1
+}

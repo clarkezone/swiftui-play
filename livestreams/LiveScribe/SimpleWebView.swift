@@ -10,19 +10,21 @@ import WebKit
 
 struct SimpleWebView: NSViewRepresentable {
     let wv = WKWebView()
+    @State var content: String
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
     
     func makeNSView(context: Context) -> WKWebView {
-        wv.loadHTMLString("hello", baseURL: nil)
+        wv.loadHTMLString(content, baseURL: nil)
        return wv
     }
     
     func updateNSView(_ nsView: WKWebView, context: Context) {
+        wv.loadHTMLString(content, baseURL: nil)
     }
 }
 
 #Preview {
-    SimpleWebView()
+    SimpleWebView(content: "test")
 }

@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var input = ""
     var body: some View {
         TextEditor(text: $input)
-        SimpleWebView()
+        SimpleWebView(content: input)
     }
 }
 

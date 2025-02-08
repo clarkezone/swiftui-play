@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		9C8AE5C72D57CAE1001ED28C /* SimpleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE5C62D57CAE1001ED28C /* SimpleWebView.swift */; };
+		9C8AE5EB2D57D6EC001ED28C /* Markdown in Frameworks */ = {isa = PBXBuildFile; productRef = 9C8AE5EA2D57D6EC001ED28C /* Markdown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9C8AE5C12D57C7DB001ED28C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C8AE59D2D57C6EB001ED28C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C8AE5A42D57C6EB001ED28C;
+			remoteInfo = LiveScribe;
+		};
+		9C8AE5D02D57D247001ED28C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C8AE59D2D57C6EB001ED28C /* Project object */;
 			proxyType = 1;
@@ -24,6 +32,8 @@
 		9C8AE5A52D57C6EB001ED28C /* LiveScribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveScribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8AE5BB2D57C7DA001ED28C /* LiveScribeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveScribeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8AE5C62D57CAE1001ED28C /* SimpleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWebView.swift; sourceTree = "<group>"; };
+		9C8AE5CC2D57D247001ED28C /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8AE5E32D57D351001ED28C /* LiveScribe.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LiveScribe.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -37,6 +47,11 @@
 			path = LiveScribeUITests;
 			sourceTree = "<group>";
 		};
+		9C8AE5CD2D57D247001ED28C /* Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,10 +59,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C8AE5EB2D57D6EC001ED28C /* Markdown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9C8AE5B82D57C7DA001ED28C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8AE5C92D57D247001ED28C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,9 +83,12 @@
 		9C8AE59C2D57C6EB001ED28C = {
 			isa = PBXGroup;
 			children = (
+				9C8AE5E32D57D351001ED28C /* LiveScribe.xctestplan */,
 				9C8AE5C62D57CAE1001ED28C /* SimpleWebView.swift */,
 				9C8AE5A72D57C6EB001ED28C /* LiveScribe */,
 				9C8AE5BC2D57C7DA001ED28C /* LiveScribeUITests */,
+				9C8AE5CD2D57D247001ED28C /* Tests */,
+				9C8AE5E92D57D6EC001ED28C /* Frameworks */,
 				9C8AE5A62D57C6EB001ED28C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,8 +98,16 @@
 			children = (
 				9C8AE5A52D57C6EB001ED28C /* LiveScribe.app */,
 				9C8AE5BB2D57C7DA001ED28C /* LiveScribeUITests.xctest */,
+				9C8AE5CC2D57D247001ED28C /* Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9C8AE5E92D57D6EC001ED28C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +130,7 @@
 			);
 			name = LiveScribe;
 			packageProductDependencies = (
+				9C8AE5EA2D57D6EC001ED28C /* Markdown */,
 			);
 			productName = LiveScribe;
 			productReference = 9C8AE5A52D57C6EB001ED28C /* LiveScribe.app */;
@@ -124,6 +159,29 @@
 			productReference = 9C8AE5BB2D57C7DA001ED28C /* LiveScribeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		9C8AE5CB2D57D247001ED28C /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8AE5D22D57D247001ED28C /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				9C8AE5C82D57D247001ED28C /* Sources */,
+				9C8AE5C92D57D247001ED28C /* Frameworks */,
+				9C8AE5CA2D57D247001ED28C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C8AE5D12D57D247001ED28C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9C8AE5CD2D57D247001ED28C /* Tests */,
+			);
+			name = Tests;
+			packageProductDependencies = (
+			);
+			productName = Tests;
+			productReference = 9C8AE5CC2D57D247001ED28C /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -141,6 +199,10 @@
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = 9C8AE5A42D57C6EB001ED28C;
 					};
+					9C8AE5CB2D57D247001ED28C = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 9C8AE5A42D57C6EB001ED28C;
+					};
 				};
 			};
 			buildConfigurationList = 9C8AE5A02D57C6EB001ED28C /* Build configuration list for PBXProject "LiveScribe" */;
@@ -152,6 +214,9 @@
 			);
 			mainGroup = 9C8AE59C2D57C6EB001ED28C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9C8AE5E82D57D683001ED28C /* XCRemoteSwiftPackageReference "swift-markdown" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9C8AE5A62D57C6EB001ED28C /* Products */;
 			projectDirPath = "";
@@ -159,6 +224,7 @@
 			targets = (
 				9C8AE5A42D57C6EB001ED28C /* LiveScribe */,
 				9C8AE5BA2D57C7DA001ED28C /* LiveScribeUITests */,
+				9C8AE5CB2D57D247001ED28C /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -172,6 +238,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9C8AE5B92D57C7DA001ED28C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8AE5CA2D57D247001ED28C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,6 +269,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C8AE5C82D57D247001ED28C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -203,6 +283,11 @@
 			isa = PBXTargetDependency;
 			target = 9C8AE5A42D57C6EB001ED28C /* LiveScribe */;
 			targetProxy = 9C8AE5C12D57C7DB001ED28C /* PBXContainerItemProxy */;
+		};
+		9C8AE5D12D57D247001ED28C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C8AE5A42D57C6EB001ED28C /* LiveScribe */;
+			targetProxy = 9C8AE5D02D57D247001ED28C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -411,6 +496,40 @@
 			};
 			name = Release;
 		};
+		9C8AE5D32D57D247001ED28C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G7G846SFMU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = objpxl.test.livestreams.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LiveScribe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LiveScribe";
+			};
+			name = Debug;
+		};
+		9C8AE5D42D57D247001ED28C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G7G846SFMU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = objpxl.test.livestreams.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LiveScribe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LiveScribe";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -441,7 +560,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		9C8AE5D22D57D247001ED28C /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8AE5D32D57D247001ED28C /* Debug */,
+				9C8AE5D42D57D247001ED28C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C8AE5E82D57D683001ED28C /* XCRemoteSwiftPackageReference "swift-markdown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftlang/swift-markdown";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C8AE5EA2D57D6EC001ED28C /* Markdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C8AE5E82D57D683001ED28C /* XCRemoteSwiftPackageReference "swift-markdown" */;
+			productName = Markdown;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9C8AE59D2D57C6EB001ED28C /* Project object */;
 }
