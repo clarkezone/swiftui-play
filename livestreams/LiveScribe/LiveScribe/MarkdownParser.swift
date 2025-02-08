@@ -38,4 +38,28 @@ struct MarkdownParser: MarkupVisitor {
         result += "</p>"
         return result
     }
+    
+    mutating func visitStrong(_ strong: Strong) -> String {
+        var result = "<strong>"
+        for child in strong.children {
+            result += visit(child)
+        }
+        result += "</strong>"
+        return result
+    }
+
+    mutating func visitEmphasis(_ emphasis: Emphasis) -> String {
+        var result = "<em>"
+        for child in emphasis.children {
+            result += visit(child)
+        }
+        result += "</em>"
+        return result
+    }
+    
+    mutating func visitLink(_ link: Link) -> String {
+        let result = #"<a href=\"#(link.destination ?? "#")">"#
+        for child
+    }
+
 }
